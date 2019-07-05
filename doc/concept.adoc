@@ -23,4 +23,8 @@ jum:projects liefert dir Beispiele für komplette Homeautomation Projekte unter 
 
 = jum:templates
 
+Hier folgt die Beschreibung von jum:templates
+
 = jum:projects
+
+Hier folgt die Beschreibung von jum:projects
