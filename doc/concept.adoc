@@ -1,6 +1,9 @@
-= Um was es geht
+Konzept
+=======
 
-Es gibt eine Vielzahl von Erweiterungskomponenten und Sensoren für Raspberry PI - wie z.B. Temperatursensoren, Relaiskarten, Bewegungssensoren. Damit lassen sich kostengünstig verschiedenste Homeautomation Anwendungen bauen. Jeder der schon einmal versucht hat solch ein Projekt umzusetzen, stösst früher oder später auf die gleichen Probleme:
+= Kurz Erklärt
+
+Es gibt eine Vielzahl von Erweiterungskomponenten und Sensoren für Raspberry PI - wie z.B. Temperatursensoren, Relaiskarten, Bewegungssensoren. Damit lassen sich kostengünstig verschiedenste Homeautomation Anwendungen bauen. Wenn du schon einmal versucht hast solch ein Projekt umzusetzen, stösst jeder früher oder später auf die gleichen Probleme:
 
     * Welche Hardware brauche ich (PI-Version, SD-Karten-Größe)
     * Wie muss ich die Erweiterungskarte an den PI anschliessen?
@@ -10,14 +13,14 @@ Es gibt eine Vielzahl von Erweiterungskomponenten und Sensoren für Raspberry PI
     * Wie startet mein Script automatisch?
     * usw...
 
-Wenn man es dann geschafft hat, sein Raspberry PI Projekt umzusetzen, stellt man sich schnell die Frage, wie die Sensor-Daten nun mit bestehenden Homeautomation-Lösungen (Philips Hue, Google Home, Homematic, Staubsaugerroboter usw.) kombiniert werden können. Zum einen möchstest du möglicherweise alle eingesetzen Lösungen in einer App sehen und steuern können. Zum anderen möchtest du vielleicht Regeln definieren können die deine Raspberry PI Sensoren und Aktoren mit anderen Systemen kombinieren. Z.B. Wenn die Aussentemperatur - von deinem Raspberry PI gemessen - unter einen bestimmten Wert fällt soll die Heizung im Wohnzimmer angeschaltet werden.
+Das Ziel von jum: ist es, die Benutzung von Raspberry PI Erweiterungskomponenten einfach zu gestalten und es zu Ermöglichen in einigen wenigen einfachen Schritten, angefangen von der Hardware-Zusammenstellung zu einem fertigen einsatzbereiten Sensor zu kommen.
 
-Für die Integration von bestehenden Homeautomation-Systemen gibt es schon ein Produkt: link:https://www.openhab.org[OpenHAB]. OpenHAB bietet Adapter zu allen gängigen Homeautomation-Systemen. Dadurch können alle Systeme über eine einheitliche Oberfläche bedient werden und auch übergreifende Regeln definiert werden.
+jum:templates stellt hierbei die Software und eine einfache Beschreibung für viele gängigen Komponenten zur Verfügung. 
 
-Das Ziel von jum: ist es, die Benutzung von Raspberry PI Erweiterungskomponenten einfach zu gestalten und es zu ermöglichen in einigen wenigen einfachen Schritten angefangen von der Hardware-Zusammenstellung zu einem fertigen einsatzbereiten Sensor zu kommen.
+Wenn du es dann geschafft hats, dein Raspberry PI Projekt umzusetzen, stellst du dir sicher schnell die Frage, wie die Sensor-Daten nun mit bestehenden Homeautomation-Lösungen (Philips Hue, Google Home, Homematic, Staubsaugerroboter usw.) kombiniert werden können. Zum einen möchstest du möglicherweise alle eingesetzen Lösungen in einer App sehen und steuern können. Zum anderen möchtest du vielleicht Regeln definieren können die deine Raspberry PI Sensoren und Aktoren mit anderen Systemen kombinieren. 
 
-jum:templates stellt hierbei die Software und eine einfache Beschreibung für viele gängigen Komponenten zur Verfügung. Die Software basiert auf dem MQTT-Protokol - dadurch lassen sich die Raspberry PI Projekte einfach in OpenHAB integrieren.
+jum:projects liefert dir Beispiele für komplette Homeautomation Projekte unter Verwendung von jum:templates basierten Sensoren und anderen gängigen Homeautomation Systemen. Alle beschriebenen Projekte basieren auf der freien Homeautomation-Platform OpenHAB.
 
-jum:projects liefert Beispiele für komplette Homeautomation Projekte unter Verwendung von jum:templates basierten Sensoren und anderen gängigen Homeautomation Systemen. Alle beschriebenen Projekte basieren auf OpenHAB und sind damit beliebig kombinierbar.
+= jum:templates
 
-
+= jum:projects
