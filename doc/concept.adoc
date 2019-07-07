@@ -1,5 +1,6 @@
 Konzept
 =======
+:imagesdir: images
 
 = Kurz Erklärt
 
@@ -23,7 +24,25 @@ jum:projects liefert dir Beispiele für komplette Homeautomation Projekte unter 
 
 = jum:templates
 
-Hier folgt die Beschreibung von jum:templates
+jum:templates beschreibt dir in 4 einfachen Schritten, wie du einen speziellen Sensor (oder Erweiterungskomponente) wie einen Temperatursensor an deinen Raspberry PI anschliessen musst. Zusätzlich erhältst du die notwendige Software um sehr einfach den Sensor mit deinem Raspberry PI zu betreiben und an einen MQTT Broker anzubinden; aber dazu später mehr.
+
+Zuerst schau dir die 4 Schritte an, mit denen du jeden Sensor in kürzester Zeit produktiv nutzen kannst.
+
+== 1. Schritt: Hardware anschliessen
+
+image:pi_dht22.png[DHT22,150,150,role="left"]
+
+Der erste Schritt dreht sich komplett um die benötigte Hardware und deren Benutzung.
+
+Du bekommst eine vollständige Liste der benötigten Hardware und dir wird genau beschrieben, wie du die Hardware an den Raspberry PI anschliessen musst.
+
+Die Hardwareliste enthält immer auch einen Raspberry PI mit dem notwendigen Zubehör wie SD-Karte, Netzteil usw. Es ist aber natürlich auch problemlos möglich mehrere Sensoren an einen bestehenden Raspberry PI anzuschliessen. Genaue Hinweise hierzu findest du auch in den jum:templates Beschreibungen.
+
+== 2. Schritt: Raspberry PI Betriebssystem präparieren
+
+== 3. Schritt: Docker-Container konfigurieren und starten
+
+== 4. Schritt: OpenHAB Item und Sitemap anlegen
 
 = jum:projects
 
