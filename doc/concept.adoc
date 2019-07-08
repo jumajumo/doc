@@ -40,12 +40,53 @@ Du bekommst eine vollständige Liste der benötigten Hardware und dir wird genau
 
 Die Hardwareliste enthält immer auch einen Raspberry PI mit dem notwendigen Zubehör wie SD-Karte, Netzteil usw. Es ist aber natürlich auch problemlos möglich mehrere Sensoren an einen bestehenden Raspberry PI anzuschliessen. Genaue Hinweise hierzu findest du auch in den jum:templates Beschreibungen.
 
-=== 2. Schritt: Raspberry PI Betriebssystem präparieren
+=== 2. Schritt: Raspberry PI vorbereiten
+
+image:pi_sdcard.png[SDCARD,150,150,role="left"]
+
+Im zweiten Schritt wird dir erklärt wie du deinen Raspberry PI für die Verwendung von jum:templates vorbereitest. 
+
+Du lernst wie du: 
+
+    * auf deine SD-Karte das Betriebssystem aufspielst, 
+    * deine WLAN-Verbindung konfigurierst, und 
+    * die jum:templates auf deinen Raspberry PI aufspielst.
+
+Dieser Schritt ist für alle Sensoren und Erweiterungskomponenten gleich. Wenn du deinen Sensor an einen bestehenden Raspberry PI anschliessen willst, entfällt dieser Schritt.
 
 === 3. Schritt: Docker-Container konfigurieren und starten
 
+image:pi_dht22.png[DHT22,150,150,role="left"]
+
+Aus technischer Sicht sind jum:templates Docker-Container. Für jeden unterstützten Sensor-Type besteht ein Docker-Image. Um den Sensor zu benutzen musst du den entsprechenden Docker-Container starten und verschiedene Parameter angeben (z.B. die Nummer des PINs an dem der Sensor angeschlossen ist).
+
+Alle Docker-Images sind so gebaut, dass sie mit einem MQTT-Broker kommunizieren. MQTT ist ein gängiges IoT-Protokoll (siehe: https://www.mqtt.org). Die Kommunkation mit dem MQTT-Broker (eine Art Server) erfolgt hierbei immer über sgn. "Topics". Das bedeutet, dass z.B. ein Temeperatur-Sensor in einem festgeslegten Intervall die Temeperatur an ein MQTT-Topic meldet. Das Intervall und der Topic-Name kann z.B. als Parameter beim Starten des Docker-Containers mit angegeben werden.
+
+Um die Sensor-Daten wiederum abzufragen bzw. Kommandos an Erweiterungskarten zu schicken, kannst du theoretisch jeden beliebigen MQTT-Client verwenden (z.B. https://mqttfx.jensd.de). Weiteres im nächsten Schritt... :-)
+
 === 4. Schritt: OpenHAB Item und Sitemap anlegen
+
+image:pi_dht22.png[DHT22,150,150,role="left"]
+
+Wie im vorigen Schritt schon erwähnt, ist es über jeden beliebigen MQTT-Client möglich die Sensor-Daten abzufragen. Um jedoch die Daten richtig konsumierbar zu machen, möchtest du bestimmt eine Samrtphone-App haben mit der du die Sensor-Werte leicht anzeigen lassen kannst.
+
+Wie in jum:projects wird auch in jum:templates die freie Homeautomation Platform OpenHAB verwendet um deine Sensoren einzubinden und in einer UI anzuzeigen. Der Vorteil ist, dass OpenHAB zum einen ein MQTT-Binding anbietet, mit dem du deine Sensoren einfach über den MQTT Broker in das OpenHAB System einbinden kannst. Zum anderen kannst du in OpenHAB über eine Sitemap-Definition leicht eine eigene Oberfläche definieren, die du dann in der OpenHAB Samrtphone-App oder über eine URL anzeigen kannst.
 
 = jum:projects
 
-Hier folgt die Beschreibung von jum:projects
+Mit Hilfe von jum:templates und OpenHAB kannst du deine eigenen Raspberry PI Things bauen und über eine OpenHAB Sitemap bedienen. OpenHAB bietet dir aber auch noch die Möglichkeit über sgn. "Bindings" andere schon bestehenden Homeautomation-Anwendungen zu integrieren.
+
+An dieser Stelle setzt jum:projects an und liefert dir Beschreibungen für komplette Homeautomation Projekte die sowohl eigene Raspberry PI basierte Things als auch etablierte Homeautomation-Systeme kombinieren. Du kannst mithilfe der Beschreibungen die Projekte einfach 1:1 nachbauen, oder aber als Ausgangspunkt für deine eigenen individuellen Projekte verwenden.
+
+= Vorraussetzungen
+
+Wie schon gesagt: Es ist es möglich deine eigenen Things mit jedem beliebigen MQTT-Broker zu betreiben. Du kannst dir also einen beliebigen MQTT-Broker im Internet aussuchen und sofort mit jum:templates loslegen.
+
+== Openhabian
+
+Wenn du die beschriebenen OpenHAB-Anbindungen verwenden möchstest solltest du aber in deinem Netzwerk einen zentralen OpenHAB Server mit einem lokalen MQTT-Broker installieren und betreiben - sozusagen deine persönliche Homeautomation-Zentrale. 
+Du kannst dafür einen Raspberry PI in Verbindung mit der OpenHAB Distribution openahbian verwenden. Das openhabian-image beinhaltet auch einen MQTT-Broker (https://mosquitto.org/) den du gleichen mitinstallieren solltest und dann als deinen lokalen MQTT-Broker verwenden kannst.
+
+Eine genaue Beschreibung wie du deinen Zentralen PI mit openhabian einrichten kannst findest du hier: https://www.openhab.org/docs/installation/openhabian.html
+
+== MQTT Binding in OpenHAB
