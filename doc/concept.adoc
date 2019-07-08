@@ -78,15 +78,3 @@ Mit Hilfe von jum:templates und OpenHAB kannst du deine eigenen Raspberry PI Thi
 
 An dieser Stelle setzt jum:projects an und liefert dir Beschreibungen für komplette Homeautomation Projekte die sowohl eigene Raspberry PI basierte Things als auch etablierte Homeautomation-Systeme kombinieren. Du kannst mithilfe der Beschreibungen die Projekte einfach 1:1 nachbauen, oder aber als Ausgangspunkt für deine eigenen individuellen Projekte verwenden.
 
-= Vorraussetzungen
-
-Wie schon gesagt: Es ist es möglich deine eigenen Things mit jedem beliebigen MQTT-Broker zu betreiben. Du kannst dir also einen beliebigen MQTT-Broker im Internet aussuchen und sofort mit jum:templates loslegen.
-
-== Openhabian
-
-Wenn du die beschriebenen OpenHAB-Anbindungen verwenden möchstest solltest du aber in deinem Netzwerk einen zentralen OpenHAB Server mit einem lokalen MQTT-Broker installieren und betreiben - sozusagen deine persönliche Homeautomation-Zentrale. 
-Du kannst dafür einen Raspberry PI in Verbindung mit der OpenHAB Distribution openahbian verwenden. Das openhabian-image beinhaltet auch einen MQTT-Broker (https://mosquitto.org/) den du gleichen mitinstallieren solltest und dann als deinen lokalen MQTT-Broker verwenden kannst.
-
-Eine genaue Beschreibung wie du deinen Zentralen PI mit openhabian einrichten kannst findest du hier: https://www.openhab.org/docs/installation/openhabian.html
-
-== MQTT Binding in OpenHAB
