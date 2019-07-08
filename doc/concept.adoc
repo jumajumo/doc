@@ -32,7 +32,7 @@ Zuerst schau dir die 4 Schritte an, mit denen du jeden Sensor in kürzester Zeit
 
 === 1. Schritt: Hardware anschliessen
 
-image:pi_dht22.png[DHT22,150,150,role="left"]
+image:pi_dht22.png[DHT22,200,200,role="left"]
 
 Der erste Schritt dreht sich komplett um die benötigte Hardware und deren Benutzung.
 
@@ -42,7 +42,7 @@ Die Hardwareliste enthält immer auch einen Raspberry PI mit dem notwendigen Zub
 
 === 2. Schritt: Raspberry PI vorbereiten
 
-image:pi_sdcard.png[SDCARD,150,150,role="left"]
+image:pi_sdcard.png[SDCARD,250,250,role="left"]
 
 Im zweiten Schritt wird dir erklärt wie du deinen Raspberry PI für die Verwendung von jum:templates vorbereitest. 
 
@@ -56,7 +56,7 @@ Dieser Schritt ist für alle Sensoren und Erweiterungskomponenten gleich. Wenn d
 
 === 3. Schritt: Docker-Container konfigurieren und starten
 
-image:pi_dht22.png[DHT22,150,150,role="left"]
+image:pi_docker.png[DOCKER,300,300,role="left"]
 
 Aus technischer Sicht sind jum:templates Docker-Container. Für jeden unterstützten Sensor-Type besteht ein Docker-Image. Um den Sensor zu benutzen musst du den entsprechenden Docker-Container starten und verschiedene Parameter angeben (z.B. die Nummer des PINs an dem der Sensor angeschlossen ist).
 
@@ -66,7 +66,7 @@ Um die Sensor-Daten wiederum abzufragen bzw. Kommandos an Erweiterungskarten zu 
 
 === 4. Schritt: OpenHAB Item und Sitemap anlegen
 
-image:pi_dht22.png[DHT22,150,150,role="left"]
+image:pi_openhab.png[OPENHAB,400,400,role="left"]
 
 Wie im vorigen Schritt schon erwähnt, ist es über jeden beliebigen MQTT-Client möglich die Sensor-Daten abzufragen. Um jedoch die Daten richtig konsumierbar zu machen, möchtest du bestimmt eine Samrtphone-App haben mit der du die Sensor-Werte leicht anzeigen lassen kannst.
 
