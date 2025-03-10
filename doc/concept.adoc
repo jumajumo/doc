@@ -77,4 +77,3 @@ Wie in jum:projects wird auch in jum:templates die freie Homeautomation Platform
 Mit Hilfe von jum:templates und OpenHAB kannst du deine eigenen Raspberry PI Things bauen und über eine OpenHAB Sitemap bedienen. OpenHAB bietet dir aber auch noch die Möglichkeit über sgn. "Bindings" andere schon bestehenden Homeautomation-Anwendungen zu integrieren.
 
 An dieser Stelle setzt jum:projects an und liefert dir Beschreibungen für komplette Homeautomation Projekte die sowohl eigene Raspberry PI basierte Things als auch etablierte Homeautomation-Systeme kombinieren. Du kannst mithilfe der Beschreibungen die Projekte einfach 1:1 nachbauen, oder aber als Ausgangspunkt für deine eigenen individuellen Projekte verwenden.
-

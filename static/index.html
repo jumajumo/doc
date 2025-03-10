@@ -1,0 +1,376 @@
+<!doctype html>
+<!--
+  Material Design Lite
+  Copyright 2015 Google Inc. All rights reserved.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      https://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License
+-->
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="integrate your own home automation projects to existing solutions">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <title>jum:</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-143030666-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-143030666-1');
+  </script>
+
+  <!-- Page styles -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    #view-source {
+      position: fixed;
+      display: block;
+      right: 0;
+      bottom: 0;
+      margin-right: 40px;
+      margin-bottom: 40px;
+      z-index: 900;
+    }
+  </style>
+
+  <link rel="shortcut icon" href="jum-ico.png" type="image/png" />
+  <link rel="icon" href="jum-ico.png" type="image/png" />
+
+</head>
+
+<body>
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+
+    <div class="android-header mdl-layout__header mdl-layout__header--waterfall">
+      <div class="mdl-layout__header-row">
+        <span class="android-title mdl-layout-title">
+          <img class="android-logo-image" src="images/jum.png">
+        </span>
+        <!-- Add spacer, to align navigation to the right in desktop -->
+        <div class="android-header-spacer mdl-layout-spacer"></div>
+        <!-- <div class="android-search-box mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right mdl-textfield--full-width">
+            <label class="mdl-button mdl-js-button mdl-button--icon" for="search-field">
+              <i class="material-icons">search</i>
+            </label>
+            <div class="mdl-textfield__expandable-holder">
+              <input class="mdl-textfield__input" type="text" id="search-field">
+            </div>
+          </div> -->
+        <!-- Navigation -->
+        <div class="android-navigation-container">
+          <nav class="android-navigation mdl-navigation">
+            <a class="mdl-navigation__link mdl-typography--text-uppercase" href="">Home</a>
+            <a class="mdl-navigation__link mdl-typography--text-uppercase" href="#concepts">Konzept</a>
+            <a class="mdl-navigation__link mdl-typography--text-uppercase" href="#templates">jum:templates</a>
+            <a class="mdl-navigation__link mdl-typography--text-uppercase" href="#projects">jum:projects</a>
+          </nav>
+        </div>
+        <span class="android-mobile-title mdl-layout-title">
+          <img class="android-logo-image" src="images/jum-white.png">
+        </span>
+        <!-- <button class="android-more-button mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect" id="more-button">
+            <i class="material-icons">more_vert</i>
+          </button>
+          <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right mdl-js-ripple-effect" for="more-button">
+            <li class="mdl-menu__item">5.0 Lollipop</li>
+            <li class="mdl-menu__item">4.4 KitKat</li>
+            <li disabled class="mdl-menu__item">4.3 Jelly Bean</li>
+            <li class="mdl-menu__item">Android History</li>
+          </ul> -->
+      </div>
+    </div>
+
+    <div class="android-drawer mdl-layout__drawer">
+      <span class="mdl-layout-title">
+        <img class="android-logo-image" src="images/jum-white.png">
+      </span>
+      <nav class="mdl-navigation">
+        <a class="mdl-navigation__link" href="">Home</a>
+        <a class="mdl-navigation__link" href="#concepts">Konzept</a>
+        <a class="mdl-navigation__link" href="#templates">jum:templates</a>
+        <a class="mdl-navigation__link" href="#projects">jum:projects</a>
+      </nav>
+    </div>
+
+    <!-- *************** Home ************* -->
+    <div class="android-content mdl-layout__content">
+      <a name="top"></a>
+      <div class="android-be-together-section mdl-typography--text-center">
+        <div class="logo-font android-slogan">home automation. raspberry pi. integration</div>
+        <div class="logo-font android-sub-slogan">
+          Benutze jum:templates um in 4 Schritten deine eigenen Raspberry PI-basierten Sensoren und Aktoren zu
+          bauen.</br>
+          Stöbere in jum:projects und finde Beschreibungen für komplette Homeautomation Projekte
+        </div>
+        <!-- <div class="logo-font android-create-character">
+            <a href=""><img src="images/jum.png"> create your android character</a>
+          </div> -->
+
+        <a href="#concepts">
+          <button class="android-fab mdl-button mdl-button--colored mdl-js-button mdl-button--fab mdl-js-ripple-effect">
+            <i class="material-icons">expand_more</i>
+          </button>
+        </a>
+      </div>
+
+      <!-- *********** Concept ************-->
+      <!-- <div class="android-concept-section">
+          <a name="concepts"></a>
+          <div class="android-concept-band">
+            <div class="android-concept-band-text">
+              <div class="mdl-typography--display-2 mdl-typography--font-thin">Konzept</div>
+              <p class="mdl-typography--headline mdl-typography--font-thin">
+                Benutze jum:Templates um einfach deine eigenen Sensoren und Aktoren zu bauen, und integriere deine Things mit anderen Home-Automation Lösungen
+              </p>
+              <p>
+                <a class="mdl-typography--font-regular mdl-typography--text-uppercase android-alt-link" href="">
+                  Lies mehr&nbsp;<i class="material-icons">chevron_right</i>
+                </a>
+              </p>
+            </div>
+          </div>
+        </div> -->
+
+      <div class="android-customized-section">
+        <a name="concepts"></a>
+        <div class="android-customized-section-text">
+          <div class="mdl-typography--font-light mdl-typography--display-1-color-contrast">Konzept</div>
+          <p class="mdl-typography--font-light">
+            Benutze jum:Templates um einfach deine eigenen Sensoren und Aktoren zu bauen, und integriere deine Things
+            mit anderen Home-Automation Lösungen
+            <br>
+            <a href="concept.html" class="android-link mdl-typography--font-light">Lies mehr...</a>
+          </p>
+        </div>
+        <div class="android-concept-section-image"></div>
+      </div>
+
+
+      <!-- ************* Templates **********-->
+      <div class="android-screen-section mdl-typography--text-center">
+        <a name="templates"></a>
+        <div class="android-section-title mdl-typography--display-1-color-contrast">jum:templates</div>
+        <a href="prerequisites.html">Voraussetzungen...</a>
+        <div class="android-screens">
+          <div class="android-tv android-screen">
+            <a class="android-image-link" href="">
+              <img class="android-screen-image" src="images/raspberry.jpg">
+            </a>
+            <a class="android-link mdl-typography--font-regular mdl-typography--text-uppercase" target="_extlink"
+              href="https://github.com/jumajumo/pi-setup">Raspberry PI
+              Setup</a>
+          </div>
+          <div class="android-wear android-screen">
+            <a class="android-image-link" href="">
+              <img class="android-screen-image" src="images/dht22.png">
+            </a>
+            <a class="android-link mdl-typography--font-regular mdl-typography--text-uppercase" target="_extlink"
+              href="https://github.com/jumajumo/dht22-docker-arm">Temperatur
+              Sensor</a>
+          </div>
+          <div class="android-phone android-screen">
+            <a class="android-image-link" href="">
+              <img class="android-screen-image" src="images/relais.jpg">
+            </a>
+            <a class="android-link mdl-typography--font-regular mdl-typography--text-uppercase" target="_extlink"
+              href="https://github.com/jumajumo/relais-switch-on-off-docker-arm">Relais
+              Schalter</a>
+          </div>
+          <div class="android-tablet android-screen">
+            <a class="android-image-link" href="">
+              <img class="android-screen-image" src="images/distancesensor.jpg">
+            </a>
+            <a class="android-link mdl-typography--font-regular mdl-typography--text-uppercase" href="">Abstand
+              messen</a>
+          </div>
+          <div class="android-tablet android-screen">
+            <a class="android-image-link" href="">
+              <img class="android-screen-image" src="images/relais.jpg">
+            </a>
+            <a class="android-link mdl-typography--font-regular mdl-typography--text-uppercase" target="_extlink"
+              href="https://github.com/jumajumo/relais-button-docker-arm">Relais
+              Taster</a>
+          </div>
+          <!-- <div class="android-auto android-screen">
+            <a class="android-image-link" href="">
+              <img class="android-screen-image" src="images/auto-on.jpg">
+            </a>
+            <a class="android-link mdl-typography--font-regular mdl-typography--text-uppercase mdl-typography--text-left"
+              href="">Coming Soon: Android Auto</a>
+          </div> -->
+        </div>
+      </div>
+
+
+      <div class="android-customized-section">
+        <div class="android-customized-section-text">
+          <div class="mdl-typography--font-light mdl-typography--display-1-color-contrast">Integration zu deinen
+            bestehenden Lösungen</div>
+          <p class="mdl-typography--font-light">
+            Baue deine Sensoren und Aktoren in bestehende Lösungen ein. Definiere lösungsübergreifende Regeln.
+            Integriere deinen Google Assistant, Alexa...
+            <br>
+            <!-- <a href="" class="android-link mdl-typography--font-light">Customise your phone</a> -->
+          </p>
+        </div>
+        <div class="android-customized-section-image"></div>
+      </div>
+
+      <div class="android-more-section">
+        <a name="projects"></a>
+        <div class="android-section-title mdl-typography--display-1-color-contrast">jum:projects</div>
+        <div class="android-card-container mdl-grid">
+          <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--3dp">
+            <div class="mdl-card__media">
+              <img src="images/garagedoor.jpg">
+            </div>
+            <div class="mdl-card__title">
+              <h4 class="mdl-card__title-text">Garagentor Antrieb</h4>
+            </div>
+            <div class="mdl-card__supporting-text">
+              <span class="mdl-typography--font-light mdl-typography--subhead">Steure deinen Garagentorantrieb mit einem
+                Raspberry PI</span>
+            </div>
+            <div class="mdl-card__actions">
+              <a class="android-link mdl-button mdl-js-button mdl-typography--text-uppercase" href="">
+                Beschreibung...
+                <i class="material-icons">chevron_right</i>
+              </a>
+            </div>
+          </div>
+
+          <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--3dp">
+            <div class="mdl-card__media">
+              <img src="images/thermometer.jpg">
+            </div>
+            <div class="mdl-card__title">
+              <h4 class="mdl-card__title-text">Miss die Temperatur und Luftfeuchtigkeit</h4>
+            </div>
+            <div class="mdl-card__supporting-text">
+              <span class="mdl-typography--font-light mdl-typography--subhead">Draussen, Drinnen, Im Keller, wo immer du
+                willst</span>
+            </div>
+            <div class="mdl-card__actions">
+              <a class="android-link mdl-button mdl-js-button mdl-typography--text-uppercase" href="">
+                Lies mehr...
+                <i class="material-icons">chevron_right</i>
+              </a>
+            </div>
+          </div>
+
+          <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--3dp">
+            <div class="mdl-card__media">
+              <img src="images/zisterne.jpg">
+            </div>
+            <div class="mdl-card__title">
+              <h4 class="mdl-card__title-text">Zisternenfüllstand messen</h4>
+            </div>
+            <div class="mdl-card__supporting-text">
+              <span class="mdl-typography--font-light mdl-typography--subhead">Wolltest du auch schon immer wissen,
+                wieviel Wasser sich noch in deiner Zisterne befindet?</span>
+            </div>
+            <div class="mdl-card__actions">
+              <a class="android-link mdl-button mdl-js-button mdl-typography--text-uppercase" href="">
+                So geht's...
+                <i class="material-icons">chevron_right</i>
+              </a>
+            </div>
+          </div>
+
+          <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--3dp">
+            <div class="mdl-card__media">
+              <img src="images/gardenrain.jpg">
+            </div>
+            <div class="mdl-card__title">
+              <h4 class="mdl-card__title-text">Automatische Rasenberegnung</h4>
+            </div>
+            <div class="mdl-card__supporting-text">
+              <span class="mdl-typography--font-light mdl-typography--subhead">Pumpe anschalten, Magnetventile steuern,
+                Beregungsprogramm definieren, Wetterabhängig automatisch starten</span>
+            </div>
+            <div class="mdl-card__actions">
+              <a class="android-link mdl-button mdl-js-button mdl-typography--text-uppercase" href="">
+                Hier steht wie's geht...
+                <i class="material-icons">chevron_right</i>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <footer class="android-footer mdl-mega-footer">
+        <div class="mdl-mega-footer--top-section">
+          <!-- <div class="mdl-mega-footer--left-section">
+              <button class="mdl-mega-footer--social-btn"></button>
+              &nbsp;
+              <button class="mdl-mega-footer--social-btn"></button>
+              &nbsp;
+              <button class="mdl-mega-footer--social-btn"></button>
+            </div> -->
+          <div class="mdl-mega-footer--right-section">
+            <a class="mdl-typography--font-light" href="#top">
+              Back to Top
+              <i class="material-icons">expand_less</i>
+            </a>
+          </div>
+        </div>
+
+        <!-- <div class="mdl-mega-footer--middle-section">
+            <p class="mdl-typography--font-light">Satellite imagery: © 2014 Astrium, DigitalGlobe</p>
+            <p class="mdl-typography--font-light">Some features and devices may not be available in all areas</p>
+          </div> -->
+
+        <!-- <div class="mdl-mega-footer--bottom-section">
+            <a class="android-link android-link-menu mdl-typography--font-light" id="version-dropdown">
+              Versions
+              <i class="material-icons">arrow_drop_up</i>
+            </a>
+            <ul class="mdl-menu mdl-js-menu mdl-menu--top-left mdl-js-ripple-effect" for="version-dropdown">
+              <li class="mdl-menu__item">5.0 Lollipop</li>
+              <li class="mdl-menu__item">4.4 KitKat</li>
+              <li class="mdl-menu__item">4.3 Jelly Bean</li>
+              <li class="mdl-menu__item">Android History</li>
+            </ul>
+            <a class="android-link android-link-menu mdl-typography--font-light" id="developers-dropdown">
+              For Developers
+              <i class="material-icons">arrow_drop_up</i>
+            </a>
+            <ul class="mdl-menu mdl-js-menu mdl-menu--top-left mdl-js-ripple-effect" for="developers-dropdown">
+              <li class="mdl-menu__item">App developer resources</li>
+              <li class="mdl-menu__item">Android Open Source Project</li>
+              <li class="mdl-menu__item">Android SDK</li>
+              <li class="mdl-menu__item">Android for Work</li>
+            </ul> -->
+        <!-- <a class="android-link mdl-typography--font-light" href="https://github.com/jumajumo/">GitHub</a> -->
+        <!-- <a class="android-link mdl-typography--font-light" href="">Privacy Policy</a> -->
+
+      </footer>
+    </div>
+  </div>
+  <!-- <a href="https://github.com/jumajumo/" target="_blank" id="view-source" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">View Source</a>
+    -->
+  <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+</body>
+
+</html>
