@@ -6,37 +6,113 @@
     <groupId>jumajumo</groupId>
     <artifactId>doc</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+    </properties>
 
     <build>
         <plugins>
+
+            <!-- 1️⃣ Compile Java -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                </configuration>
+            </plugin>
+
+
+            <!-- 2️⃣ Convert AsciiDoc to HTML -->
             <plugin>
                 <groupId>org.asciidoctor</groupId>
                 <artifactId>asciidoctor-maven-plugin</artifactId>
-                <version>1.5.6</version> 
-                    <configuration>
-                        <sourceDirectory>doc</sourceDirectory>
-                        <outputDirectory>generated</outputDirectory>
-                        <backend>html</backend>
-                        <doctype>book</doctype>
-                        <!-- <attributes>
-                            <stylesheet>my-theme.css</stylesheet>
-                        </attributes> -->
-                    </configuration>
+                <version>2.2.2</version>
                 <executions>
                     <execution>
-                        <configuration>
-                            <sourceDirectory>${basedir}/doc</sourceDirectory>
-                            <outputDirectory>${project.build.directory}/generated-docs</outputDirectory>
-                            <preserveDirectories>true</preserveDirectories>
-                        </configuration>
-                        <id>output-html</id>              
-                        <phase>generate-resources</phase> 
+                        <id>generate-html</id>
+                        <phase>generate-resources</phase>
                         <goals>
-                            <goal>process-asciidoc</goal> 
+                            <goal>process-asciidoc</goal>
                         </goals>
                     </execution>
                 </executions>
+                <configuration>
+                    <sourceDirectory>${project.basedir}/doc</sourceDirectory>
+                    <outputDirectory>${project.build.directory}/generated-html</outputDirectory>
+                    <backend>html5</backend>
+                    <attributes>
+                        <linkcss>true</linkcss>
+                    </attributes>
+                </configuration>
             </plugin>
+
+            <!-- 3️⃣ Inject AsciiDoc content into template.html -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.0.0</version>
+                <executions>
+                    <execution>
+                        <id>wrap-content</id>
+                        <phase>prepare-package</phase>  <!-- Ensure Java is compiled first -->
+                        <goals>
+                            <goal>java</goal>
+                        </goals>
+                        <configuration>
+                            <mainClass>de.jumajumo.doc.TemplateProcessor</mainClass>
+                            <classpathScope>runtime</classpathScope>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- 4️⃣ Copy final static site to target output -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.2.0</version>
+                <executions>
+                    <execution>
+                        <id>copy-final-site</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/final-site</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${project.build.directory}/processed-html</directory>
+                                    <filtering>false</filtering>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>copy-static-resources</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/final-site</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>static</directory>
+                                    <filtering>false</filtering>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
         </plugins>
     </build>
 
