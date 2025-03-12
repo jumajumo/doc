@@ -14,8 +14,8 @@
     </properties>
 
     <build>
-        <plugins>
 
+        <plugins>
             <!-- 1️⃣ Compile Java -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -26,7 +26,6 @@
                     <target>${maven.compiler.target}</target>
                 </configuration>
             </plugin>
-
 
             <!-- 2️⃣ Convert AsciiDoc to HTML -->
             <plugin>
@@ -108,6 +107,26 @@
                                     <filtering>false</filtering>
                                 </resource>
                             </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.0.0</version>
+                <executions>
+                    <execution>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>python3</executable>
+                            <arguments>
+                                <argument>uploadToServer.py</argument>
+                            </arguments>
                         </configuration>
                     </execution>
                 </executions>
