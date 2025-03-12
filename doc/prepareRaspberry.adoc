@@ -1,0 +1,102 @@
+= Raspberry Pi Setup
+
+Raspberry Pi einrichten für jum:templates
+
+Mit dieser Anleitung machst du deinen Raspberry Pi in zwei einfachen Schritten bereit für jum:templates!
+
+== Vorbereitung der SD-Karte
+
+Damit dein Raspberry Pi startklar ist, brauchst du eine SD-Karte mit Raspbian. So geht’s:
+
+. Raspbian-Image herunterladen::  
+   Besuche die offizielle Raspberry Pi Website unter https://www.raspberrypi.com/software/operating-systems/, und lade das aktuelle Raspbian-Image herunter.  
+
+. balenaEtcher herunterladen::  
+   Besuche https://balena.io/etcher und lade das Tool herunter (verfügbar für Windows, macOS und Linux).  
+
+. SD-Karte flashen::  
+   - Starte balenaEtcher und klicke auf *„Flash from file“*, um das zuvor heruntergeladene Raspbian-Image auszuwählen.  
+   - Wähle anschließend deine SD-Karte aus und klicke auf *„Flash!“*.  
+
+. WLAN konfigurieren::  
+   Nachdem das Image geflasht wurde, öffne die SD-Karte auf deinem Computer und erstelle eine Datei namens `wpa_supplicant.conf` im Hauptverzeichnis der SD-Karte.  
+   - Füge folgenden Inhalt in die Datei ein und passe `SSID` und `PASSWORD` an dein Netzwerk an:  
+
+   [source,ruby]  
+   ----  
+   country=DE  
+   ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev  
+   update_config=1  
+   network={  
+       ssid="DEIN_WIFI_NAME"  
+       psk="DEIN_WIFI_PASSWORT"  
+   }  
+   ----  
+
+   - Speichere die Datei ab.  
+
+. Fertig!::  
+   Deine SD-Karte ist nun bereit für den Einsatz. Stecke sie in deinen Raspberry Pi, und dieser sollte sich beim ersten Start automatisch mit deinem WLAN verbinden!
+
+== Docker installieren & jum:templates holen
+
+Jetzt installiere Docker und hole die jum:templates:
+
+. Terminal öffnen::  
+   Starte deinen Raspberry Pi und öffne das Terminal.  
+
+. Docker und Git installieren::  
+   Führe folgenden Befehl aus, um Docker und Git automatisch zu installieren:  
+
+   [source, shell]  
+   ----  
+   curl -sSL https://raw.githubusercontent.com/jumajumo/pi-setup/master/install.sh | sh  
+   ----  
+
+. Raspberry Pi neu starten::  
+   Damit die Änderungen wirksam werden, starte deinen Raspberry Pi neu:  
+
+   [source, shell]  
+   ----  
+   sudo reboot  
+   ----  
+
+. jum:templates herunterladen::  
+   Sobald Docker läuft, hol dir die jum:templates mit:  
+
+   [source, shell]  
+   ----  
+   curl -sSL https://raw.githubusercontent.com/jumajumo/pi-setup/master/getcontainers.sh | sh  
+   ----  
+
+== Template starten
+
+Jetzt kommt der letzte Schritt – dein Template starten.
+
+Bevor du das Template ausführen kannst, muss es nach dem Setup noch gestartet werden. Die genaue Vorgehensweise und die benötigten Befehle sind in den jeweiligen Template-Beschreibungen zu finden. Hier geben wir dir ein Beispiel für das *Temperatur Sensor*-Template:
+
+=== Template ausführen  
+Für das *Temperatur Sensor*-Template lautet die Vorgehensweise:
+
+1. **Builden des Templates**  
+   Zuerst musst du das Template builden: 
+
+   [source, shell]  
+   ----  
+   docker build --rm -t jumajumo/dht22 .  
+   ----
+
+2. **Template ausführen**  
+   Starte das Template mit diesem Befehl:  
+
+   [source, shell]  
+   ----  
+   docker run -d --network="host" --privileged -e brokeraddr=192.168.0.150 -e thingid=tslivingroom -e pin=4 -e refresh=10 --restart always --name "jumajumo_dht22" jumajumo/dht22  
+   ----
+
+
+   Dieser Befehl startet das Template mit den folgenden wichtigen Parametern:  
+   - `brokeraddr`: Die Adresse des MQTT-Brokers.  
+   - `thingid`: Die ID des Geräts.  
+   - `pin`: Der GPIO-Pin des Sensors.  
+   - `refresh`: Das Intervall, in dem die Messwerte aktualisiert werden.
