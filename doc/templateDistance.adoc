@@ -1,0 +1,48 @@
+= Template: Abstand Messen
+:imagesdir: images
+
+== 1. Schritt: Hardware anschliessen
+
+image:hc-sr04.png[DISTANCE,250,250,role="left"]
+
+Hier wwird erklärt wie der Distanzsensor an den Raspberry angeschlossen wird.
+
+Es wird ein distance-sensor benötigt. Siehe link:https://cdn.sparkfun.com/datasheets/Sensors/Proximity/HCSR04.pdf[Datasheet, window="_datasheet"]
+
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+
+== 2. Schritt: Raspberry PI vorbereiten
+
+Folge dafür der Beschreibung in link:prepareRaspberry.html[Raspberry Pi Setup]
+
+== 3. Schritt: Docker Container configurieren und starten
+
+[source,shell]
+----
+docker build --rm -t jumajumo/distance .
+----
+
+[source,shell]
+----
+docker run -d --network="host" --privileged -e brokeraddr=192.168.0.150 -e thingid=dscistern -e pintrigger=18 -e pinecho=24 -e refresh=10 --restart always --name "jumajumo_dscistern" jumajumo/distance
+----
+
+[NOTE]
+====
+--privileged: privileged is necessary in order to allow access to gpio +
+-e brokeraddr: ip address of the mqtt broker (default port 1883 is used) (default "openhabian") +
+-e thingid: thing id of the sensor (used for mqtt-topic) (default "default") +
+-e pintrigger: the gpio pin used for the trigger (default 18) +
+-e pinecho: the gpio pin used for the echo (default 24) +
+-e refresh: publishing interval in seconds (default 5) +
+--restart: define the restart policy. always: start container on each start of the docker daemon +
+--name: give it a name +
+====
+
+Komplette Beschreibung siehe link:https://github.com/jumajumo/distance-docker-arm[Github, window="_github"]
+
+== 4. Schritt
+
+mqtt thing anlegen
+item anlegen
+sitemap item anlegen

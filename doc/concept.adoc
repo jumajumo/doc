@@ -44,7 +44,7 @@ Die Hardwareliste enthält immer auch einen Raspberry PI mit dem notwendigen Zub
 
 image:pi_sdcard.png[SDCARD,250,250,role="left"]
 
-Im zweiten Schritt wird dir erklärt wie du deinen Raspberry PI für die Verwendung von jum:templates vorbereitest. 
+Im link:prepareRaspberry.html[zweiten Schritt] wird dir erklärt wie du deinen Raspberry PI für die Verwendung von jum:templates vorbereitest. 
 
 Du lernst wie du: 
 
